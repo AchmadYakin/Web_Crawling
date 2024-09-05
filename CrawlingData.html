@@ -1,0 +1,1134 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Crawling Data &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'CrawlingData';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FCrawlingData.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/CrawlingData.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Crawling Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tentang-crawling-data">Tentang Crawling Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-crawling-data">Kode Crawling Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-crawling">Hasil Crawling</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="crawling-data">
+<h1>Crawling Data<a class="headerlink" href="#crawling-data" title="Link to this heading">#</a></h1>
+<section id="tentang-crawling-data">
+<h2>Tentang Crawling Data<a class="headerlink" href="#tentang-crawling-data" title="Link to this heading">#</a></h2>
+<p>![Crawling.avif](data:image/avif;base64,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) <br>
+Crawling data merupakan Proses untuk mengotomatisasi untuk menjelajahi sebuah situs web untuk mengumpulkan informasi dari halaman-halaman web. proses ini oleh komputer dikenal dengan istilah <em>Web Crawler</em>. Web crawler akan memulai dengan mengunjungi sebuah halaman web, mengekstrak semua tautan di halaman tersebut, kemudian mengikuti tautan tersebut untuk mengunjungi halaman-halaman lain dan mengumpulkan data yang diperlukan.</p>
+<ol class="arabic simple">
+<li><p><strong>Tools Yang Biasa Digunakan :</strong> <br></p></li>
+</ol>
+<ul class="simple">
+<li><p>Web Spider</p></li>
+<li><p>Spider Bot</p></li>
+<li><p>Web Bot</p></li>
+<li><p>Crawler</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Tujuan dan Fungsi Crawling Data</strong> <br></p></li>
+</ol>
+<ul class="simple">
+<li><p>Pengindeksan oleh <em>Search Engine</em> : <br>
+<em>Search Engine</em> seperti Google menggunakan web crawler untuk mengindeks konten dari miliaran halaman web. Data yang dikumpulkan kemudian digunakan untuk membuat indeks untuk pengguna menemukan informasi secara cepat dan tepat melalui pencarian.</p></li>
+<li><p>Pemantauan Situs Web: <br>
+Web crawling juga digunakan untuk pemantauan perubahan pada situs web.</p></li>
+<li><p>Web Scrapping : <br>
+Web crawling sering digunakan sebagai langkah awal dalam proses web scraping. Crawling digunakan untuk mengunjungi halaman pada suatu situs web dan Scraping digunakan untuk mengekstrak informasi dari halaman-halaman tersebut.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><strong>Cara Melakukan Crawling Data</strong> <br>
+Langkah-langkah untuk melakukan data crawling adalah sebagai berikut:</p></li>
+</ol>
+<ul class="simple">
+<li><p>mengidentifikasi sumber data: Tentukan sumber data yang akan dikumpulkan seperti situs web, database, atau dokumen.</p></li>
+<li><p>Membuat crawler: Buat atau gunakan software atau aplikasi khusus yang disebut “crawler” untuk mengakses dan mengumpulkan data dari sumber.</p></li>
+<li><p>Mengkonfigurasikan crawler: Atur konfigurasi crawler seperti jumlah halaman yang dikumpulkan, interval waktu antar crawling, dan lain-lain.
+Jalankan crawler: Jalankan crawler untuk mengakses sumber data dan mengumpulkan data yang dibutuhkan.</p></li>
+<li><p>Menganalisis data: Analisis data yang dikumpulkan untuk memastikan bahwa data akurat dan sesuai dengan kebutuhan.</p></li>
+<li><p>Menyimpan data: Simpan data yang dikumpulkan ke dalam database atau dokumen yang sesuai.</p></li>
+<li><p>Memantau: Pantau dan perbarui crawler secara berkala untuk memastikan bahwa data yang dikumpulkan akurat dan up-to-date.</p></li>
+</ul>
+</section>
+<section id="kode-crawling-data">
+<h2>Kode Crawling Data<a class="headerlink" href="#kode-crawling-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Library yang akan digunakan</span>
+<span class="kn">import</span> <span class="nn">scrapy</span>
+<span class="kn">from</span> <span class="nn">scrapy.crawler</span> <span class="kn">import</span> <span class="n">CrawlerProcess</span>
+
+<span class="k">class</span> <span class="nc">CrawlingWeb</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span> <span class="c1">#1</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Sindonews&quot;</span>
+    <span class="n">custom_settings</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;FEEDS&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;sindonews.csv&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;csv&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;overwrite&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">urls</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Sumber data</span>
+        <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://index.sindonews.com/index/0/&quot;</span>
+        <span class="c1"># jumlah data dan tanggal yang akan diambil</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}{</span><span class="n">i</span><span class="si">}</span><span class="s2">?t=2024-09-02&quot;</span>
+            <span class="n">urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="c1"># mengambil data dari elemen div</span>
+        <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;div.indeks-news&quot;</span><span class="p">):</span>
+          <span class="k">yield</span> <span class="p">{</span>
+              <span class="c1"># mengambil data yang diperlukan dari elemen div</span>
+              <span class="s1">&#39;Judul&#39;</span> <span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;div.indeks-title &gt; a::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+              <span class="s2">&quot;Isi Berita&quot;</span> <span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;div.indeks-caption &gt; span::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+              <span class="s2">&quot;Tanggal Berita&quot;</span> <span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;div.mini-info &gt; ul &gt; li &gt; p::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+              <span class="s2">&quot;Kategori&quot;</span> <span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;div.mini-info &gt; ul &gt; li &gt; a::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+          <span class="p">}</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">()</span>
+<span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">CrawlingWeb</span><span class="p">)</span>
+<span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-f1c7a0fc0f53&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Library yang akan digunakan</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">scrapy</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">scrapy.crawler</span> <span class="kn">import</span> <span class="n">CrawlerProcess</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">class</span> <span class="nc">CrawlingWeb</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span> <span class="c1">#1</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;scrapy&#39;
+
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NOTE</span>: If your import is failing due to a missing package, you can
+<span class="n">manually</span> <span class="n">install</span> <span class="n">dependencies</span> <span class="n">using</span> <span class="n">either</span> <span class="o">!</span>pip<span class="w"> </span>or<span class="w"> </span>!apt.
+
+<span class="n">To</span> <span class="n">view</span> <span class="n">examples</span> <span class="n">of</span> <span class="n">installing</span> <span class="n">some</span> <span class="n">common</span> <span class="n">dependencies</span><span class="p">,</span> <span class="n">click</span> <span class="n">the</span>
+<span class="s2">&quot;Open Examples&quot;</span> <span class="n">button</span> <span class="n">below</span><span class="o">.</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sumber data diambil dari : <br>
+<a class="reference external" href="https://www.sindonews.com/">https://www.sindonews.com/</a> <br>
+pertama tama mengimpor library yang dibutuhkan, disini saya mengimport scrapy. scrapy sendiri merupakan sebuah framework untuk melakukan web scraping. <br>
+link menuju scrappy <br>
+<a class="reference external" href="https://docs.scrapy.org/en/latest/intro/tutorial.html">https://docs.scrapy.org/en/latest/intro/tutorial.html</a> <br>
+<strong>#1</strong>. memebuat spider baru dengan nama CrawlingWeb yang interiche scrapi.spider dan membuat settings untuk file csv yang akan disimpan</p>
+</section>
+<section id="hasil-crawling">
+<h2>Hasil Crawling<a class="headerlink" href="#hasil-crawling" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Membaca file CSV ke DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sindonews.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan DataFrame</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-e97ff90a-0bbf-417f-9541-f49ce0250dbb" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Judul</th>
+      <th>Isi Berita</th>
+      <th>Tanggal Berita</th>
+      <th>Kategori</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Pembubaran Jiwasraya, Kementerian BUMN Bentuk ...</td>
+      <td>Wakil Menteri BUMN Kartika Wirjoatmodjo memast...</td>
+      <td>Senin, 02 September 2024 - 23:30 WIB</td>
+      <td>EKONOMI BISNIS</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6 Tersangka Pengeroyokan Tahanan Rutan Depok h...</td>
+      <td>Kapolres Depok, Kombes Pol Arya Perdana mengat...</td>
+      <td>Senin, 02 September 2024 - 23:54 WIB</td>
+      <td>METRO</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tamara Tyasmara Disebut Bucin pada Yudha Arfan...</td>
+      <td>Pengacara Yudha Arfandi (YA), Daliun Sailan, m...</td>
+      <td>Senin, 02 September 2024 - 23:00 WIB</td>
+      <td>LIFESTYLE</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Mahindra Dorong Industri Otomotif India Lawan ...</td>
+      <td>Konglomerat India Mahindra Group berencana men...</td>
+      <td>Senin, 02 September 2024 - 23:07 WIB</td>
+      <td>OTOMOTIF</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Kementerian PUPR Sebut Capaian 10 Tahun Infras...</td>
+      <td>Jubir Kementerian PUPR, Endra S Atmawidjaja me...</td>
+      <td>Senin, 02 September 2024 - 23:28 WIB</td>
+      <td>NASIONAL</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Soal Pertunjukan Musik Dugem di Open House Raj...</td>
+      <td>Universitas Brawijaya (UB) menjadi sorotan usa...</td>
+      <td>Senin, 02 September 2024 - 18:00 WIB</td>
+      <td>DAERAH</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>46.000 Pekerja Diterjang Badai PHK, Korban Ter...</td>
+      <td>Kementerian Ketenagakerjaan (Kemnaker) melapor...</td>
+      <td>Senin, 02 September 2024 - 17:46 WIB</td>
+      <td>EKONOMI BISNIS</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Rusia Tegaskan Israel dan Ukraina Punya Agenda...</td>
+      <td>Ukraina dan Israel tengah berupaya memicu pera...</td>
+      <td>Senin, 02 September 2024 - 17:45 WIB</td>
+      <td>INTERNATIONAL</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>3 Ayat Terakhir Surat Al Hasyr yang Punya Bany...</td>
+      <td>Tiga ayat terakhir Surat Al Hasyr rupanya memi...</td>
+      <td>Senin, 02 September 2024 - 17:45 WIB</td>
+      <td>KALAM</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>Tiba di Arab Saudi, Skuad Timnas Indonesia Sem...</td>
+      <td>Timnas Indonesia menjalani ibadah umrah di sel...</td>
+      <td>Senin, 02 September 2024 - 17:44 WIB</td>
+      <td>SPORTS</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 4 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e97ff90a-0bbf-417f-9541-f49ce0250dbb')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-e97ff90a-0bbf-417f-9541-f49ce0250dbb button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-e97ff90a-0bbf-417f-9541-f49ce0250dbb');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-4a3969cf-7676-4198-9fb1-342d929c384f">
+  <button class="colab-df-quickchart" onclick="quickchart('df-4a3969cf-7676-4198-9fb1-342d929c384f')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-4a3969cf-7676-4198-9fb1-342d929c384f button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_a85f46d7-0d10-4c87-8a0c-9838650fc31c">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_a85f46d7-0d10-4c87-8a0c-9838650fc31c button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('df');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<p>diatas merupakan dataframe dari hasil web crawling yang telah dilakukan. didapatkan hasil sebanyak 100 data dengan 4 kolom yaitu : Judul Artikel, Tanggal Terbit, Kategori Artikel dan juga Link Artikel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># jumlah kategori pencarian</span>
+<span class="n">kategori</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Kategori&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">kategori</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>dari kode diatas diketahui jumlah jenis katori sebanyak 12 jenis yaitu METRO, NASIONAL, DAERAH, Dlsbnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung jumlah kategori</span>
+<span class="n">kategori_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Kategori&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="c1"># Menampilkan hasil</span>
+<span class="n">kategori_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Kategori</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>METRO</th>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>NASIONAL</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>DAERAH</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>EKONOMI BISNIS</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>SPORTS</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>LIFESTYLE</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>OTOMOTIF</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>INTERNATIONAL</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>TEKNO</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>EDUKASI</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>SAINS</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>KALAM</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> int64</label></div></div>
+</div>
+<p>diatas merupakan dataframe dari jumlah data berdasarkan jenis kategori, diketahui jenis kategori METRO paling banyak yaitu sebanyak 17 artikel dan diketahui jenis kategori KALAM paling sedikit yaitu sebanyaj 1 artikel dari 100 artikel</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># mebuat plot dan menghitung jumlah nilai dari kategori</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Kategori&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="c1"># memabuat xlabel</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Kategori&#39;</span><span class="p">)</span>
+<span class="c1"># memuat ylabel</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Jumlah&#39;</span><span class="p">)</span>
+<span class="c1"># membuat judul plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Visualisasi&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1d1facbed36a8fa8255cd233926b55a718abffc7430aef373efeaedb3fb6eef3.png" src="_images/1d1facbed36a8fa8255cd233926b55a718abffc7430aef373efeaedb3fb6eef3.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tentang-crawling-data">Tentang Crawling Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-crawling-data">Kode Crawling Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-crawling">Hasil Crawling</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

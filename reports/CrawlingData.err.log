@@ -1,0 +1,81 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Library yang akan digunakan
+import scrapy
+from scrapy.crawler import CrawlerProcess
+
+class CrawlingWeb(scrapy.Spider): #1
+    name = "Sindonews"
+    custom_settings = {
+        'FEEDS': {
+            'sindonews.csv': {
+                'format': 'csv',
+                'overwrite': True,
+            },
+        },
+    }
+
+    def start_requests(self):
+        urls = []
+        # Sumber data
+        base_url = "https://index.sindonews.com/index/0/"
+        # jumlah data dan tanggal yang akan diambil
+        for i in range(0, 100):
+            url = f"{base_url}{i}?t=2024-09-02"
+            urls.append(url)
+
+        for url in urls:
+            yield scrapy.Request(url=url, callback=self.parse)
+
+    def parse(self, response):
+        # mengambil data dari elemen div
+        for data in response.css("div.indeks-news"):
+          yield {
+              # mengambil data yang diperlukan dari elemen div
+              'Judul' : data.css('div.indeks-title > a::text').get(),
+              "Isi Berita" : data.css('div.indeks-caption > span::text').get(),
+              "Tanggal Berita" : data.css('div.mini-info > ul > li > p::text').get(),
+              "Kategori" : data.css('div.mini-info > ul > li > a::text').get()
+          }
+
+process = CrawlerProcess()
+process.crawl(CrawlingWeb)
+process.start()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-f1c7a0fc0f53>[0m in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m [0;31m# Library yang akan digunakan[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mscrapy[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mfrom[0m [0mscrapy[0m[0;34m.[0m[0mcrawler[0m [0;32mimport[0m [0mCrawlerProcess[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mclass[0m [0mCrawlingWeb[0m[0;34m([0m[0mscrapy[0m[0;34m.[0m[0mSpider[0m[0;34m)[0m[0;34m:[0m [0;31m#1[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'scrapy'
+
+[0;31m---------------------------------------------------------------------------[0;32m
+NOTE: If your import is failing due to a missing package, you can
+manually install dependencies using either !pip or !apt.
+
+To view examples of installing some common dependencies, click the
+"Open Examples" button below.
+[0;31m---------------------------------------------------------------------------[0m
+
+
